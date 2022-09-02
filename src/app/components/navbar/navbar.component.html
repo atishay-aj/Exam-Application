@@ -1,1 +1,25 @@
-<h1>this is navbar</h1>
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </button>
+  <span style="cursor: pointer;" routerLink="">Examportal</span>
+  <span class="example-spacer"></span>
+  <button *ngIf="!isLoggedIn" routerLink="login" mat-icon-button class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    Login
+  </button>
+  <button *ngIf="!isLoggedIn" routerLink="signup" mat-icon-button class="example-icon ml20 mr20"
+    aria-label="Example icon-button with share icon">
+    Register
+  </button>
+  
+  <button *ngIf="isLoggedIn" (click)="logoutButton()" mat-icon-button class="example-icon"
+    aria-label="Example icon-button with share icon">
+    Logout
+  </button>
+  <button routerLink="/admin/profile" *ngIf="isLoggedIn && user"  mat-icon-button class="example-icon favorite-icon ml20 mr20"
+    aria-label="Example icon-button with heart icon">
+    {{user.username}}
+  </button>
+
+</mat-toolbar>
